@@ -5,7 +5,12 @@ function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-        <img src="src\assets\Logo.jpg" style="width:500px;height:600px;"></img>
+        <div className="logo">
+        <a href="../index.html">
+          <img src="src\assets\Logo.jpg" alt="Logo" />
+        </a>
+      </div>
+
           <p>Your trusted partner in digital innovation and business solutions.</p>
         </div>
         <div className="footer-section">
@@ -21,7 +26,7 @@ function Footer() {
           <h3>Contact</h3>
           <p>Email: info@RxFlow.com</p>
           <p>Phone: +91 86510 65233</p>
-          <p>Address: 123 Business St, Tech City</p>
+          <p>Address: India</p>
         </div>
       </div>
       <div className="footer-bottom">
