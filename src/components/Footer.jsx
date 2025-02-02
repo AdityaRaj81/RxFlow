@@ -5,7 +5,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-        <link rel="icon" href="src\assets\Logo.jpg" />
+        <img src="src\assets\Logo.jpg" style="width:500px;height:600px;"></img>
           <p>Your trusted partner in digital innovation and business solutions.</p>
         </div>
         <div className="footer-section">
