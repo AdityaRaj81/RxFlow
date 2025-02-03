@@ -1,12 +1,34 @@
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react';
 
 function Footer() {
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 1000); // Update every second
+
+    return () => clearInterval(timer); // Cleanup on unmount
+  }, []);
+
+  const formattedDateTime = new Intl.DateTimeFormat('en-US', {
+    weekday: 'long', // Options: 'short', 'narrow', 'long'
+    year: 'numeric', // Options: '2-digit', 'numeric'
+    month: 'long',   // Options: 'numeric', '2-digit', 'short', 'long', 'narrow'
+    day: '2-digit',  // Options: 'numeric', '2-digit'
+    hour: '2-digit', // Options: 'numeric', '2-digit'
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,    // Use 12-hour format; set to false for 24-hour format
+  }).format(currentDateTime);
+
   return (
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
         <div className="logo">
-        <a href="../index.html">
+        <a href="src\App.jsx">
           <img src="src\assets\Logo.jpg" alt="Logo" />
         </a>
       </div>
@@ -31,6 +53,7 @@ function Footer() {
       </div>
       <div className="footer-bottom">
         <p>&copy; 2024 RxFlow. All rights reserved.</p>
+        <p>{formattedDateTime}</p>
       </div>
     </footer>
   )

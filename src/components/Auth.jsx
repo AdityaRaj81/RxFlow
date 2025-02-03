@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const USERS = {
-  staff: { email: 'staff@gmail.com', password: '123', role: 'staff' },
-  auditor: { email: 'auditor@gmail.com', password: '123', role: 'auditor' },
-  admin: { email: 'admin@gmail.com', password: '123', role: 'admin' }
+  staff: { email: 'staff@rxflow.com', password: '123', role: 'staff' },
+  auditor: { email: 'auditor@rxflow.com', password: '123', role: 'auditor' },
+  admin: { email: 'admin@rxflow.com', password: '123', role: 'admin' }
 };
 
 function Auth() {
@@ -82,26 +82,52 @@ function Auth() {
                 />
               </div>
               <div className="form-group">
-                <label>Role</label>
-                <select 
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                  className="role-select"
-                >
-                  <option value="staff">Staff</option>
-                  <option value="auditor">Auditor</option>
-                  <option value="admin">Admin</option>
-                </select>
-              </div>
+  {/* <label>Role:</label> */}
+  <div className="role-options" style={{ display: 'flex', gap: '50px', alignItems: 'center' }}>
+    <label>
+      <input 
+        type="radio" 
+        name="role" 
+        value="staff" 
+        checked={role === 'staff'} 
+        onChange={(e) => setRole(e.target.value)} 
+      />
+      Staff
+    </label>
+    <label>
+      <input 
+        type="radio" 
+        name="role" 
+        value="auditor" 
+        checked={role === 'auditor'} 
+        onChange={(e) => setRole(e.target.value)} 
+      />
+      Auditor
+    </label>
+    <label>
+      <input 
+        type="radio" 
+        name="role" 
+        value="admin" 
+        checked={role === 'admin'} 
+        onChange={(e) => setRole(e.target.value)} 
+      />
+      Admin
+    </label>
+  </div>
+</div>
+
+
+
               {error && <div className="error-message">{error}</div>}
               <button type="submit" className="submit-button">Login</button>
             </form>
             <div className="auth-links">
               <p className="helper-text">
                 Demo Credentials:<br />
-                Staff: staff@gmail.com / 123<br />
-                Auditor: auditor@gmail.com / 123<br />
-                Admin: admin@gmail.com / 123
+                Staff: staff@rxflow.com / 123<br />
+                Auditor: auditor@rxflow.com / 123<br />
+                Admin: admin@rxflow.com / 123
               </p>
             </div>
           </motion.div>
