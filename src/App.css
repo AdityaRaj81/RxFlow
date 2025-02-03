@@ -983,4 +983,5 @@
   max-width: 10vh;
   aspect-ratio: 1 / 1;
   object-fit: contain;
+  border-radius: 25%;
 }
