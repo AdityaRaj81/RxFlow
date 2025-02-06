@@ -1,0 +1,197 @@
+/* Main Container */
+.dashboard-container {
+  max-width: 1200px;
+  width: 90%;
+  background: #dfe0fd;
+  padding: 1.5rem;
+  font-family: Arial, sans-serif;
+  margin: 25px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Content: Flex layout for two panels */
+.dashboard-content {
+  display: flex; /* Flex layout for horizontal alignment */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  gap: 2rem; /* Space between panels */
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+/* Left Panel: Profile details */
+.left-panel {
+  flex: 1; /* Take up equal space as the right panel */
+  max-width: 40%; /* Limit the width for the left panel */
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.left-panel h2 {
+  margin-bottom: 10px;
+}
+
+.left-panel p {
+  margin: 5px 0;
+}
+
+/* Profile Avatar */
+.profile-avatar {
+  margin-bottom: 1rem;
+}
+
+.profile-avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+}
+
+/* Role Badge */
+.role-badge {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Profile Details */
+.profile-details .detail-item {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* Right Panel: Edit form */
+.right-panel {
+  flex: 2; /* Take up more space than the left panel */
+  max-width: 60%;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-button{
+  background: #007bff;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.profile-form .form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.profile-form input,
+.profile-form textarea,
+.profile-form select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.profile-form .form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.save-button {
+  background: #28a745;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background: #dc3545;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .dashboard-content {
+    flex-direction: column; /* Stack panels vertically */
+  }
+  .left-panel,
+  .right-panel {
+    max-width: 100%; /* Full width for small screens */
+  }
+}
+
+
+.right-panel form {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-panel label {
+  margin-bottom: 10px;
+}
+
+.right-panel input,
+.right-panel select {
+  margin-bottom: 15px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.right-panel button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.right-panel button[type="button"] {
+  background-color: #dc3545;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+textarea,
+input[type="text"],
+input[type="tel"],
+input[type="password"],
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
