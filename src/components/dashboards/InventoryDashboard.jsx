@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { format, addDays } from 'date-fns';
+import '../../styles/InventoryDashboard.css';
+
 
 function InventoryDashboard() {
   const [searchTerm, setSearchTerm] = useState('');
