@@ -106,7 +106,7 @@ function BillingDashboard() {
             </div>
             <div className="form-row">
               <div className="form-group">
-                <label>Doctor's Name</label>
+                <label>Doctors Name</label>
                 <input
                   type="text"
                   value={customerInfo.doctorName}
