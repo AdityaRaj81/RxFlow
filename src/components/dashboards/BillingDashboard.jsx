@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState, useRef } from 'react';
 import { format } from 'date-fns';
 import { useReactToPrint } from 'react-to-print';
+import '../../styles/BillingDashboard.css';
 
 function BillingDashboard() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -14,6 +15,12 @@ function BillingDashboard() {
     doctorName: '',
     prescriptionNo: '',
   });
+  const [medicines, setMedicines] = useState([
+    { id: 1, name: 'Paracetamol', price: 20, stock: 100 },
+    { id: 2, name: 'Ibuprofen', price: 25, stock: 200 },
+    // Add more sample medicines here
+  ]);
+  const [searchQuery, setSearchQuery] = useState('');
   const printRef = useRef();
 
   const handlePrint = useReactToPrint({
@@ -52,6 +59,20 @@ function BillingDashboard() {
       gst: gst.toFixed(2),
       total: (subtotal + gst).toFixed(2),
     };
+  };
+
+  // Search medicine by name
+  const filteredMedicines = medicines.filter((medicine) =>
+    medicine.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleMedicineSelect = (medicine) => {
+    const updatedItems = [...billItems];
+    const lastItem = updatedItems[updatedItems.length - 1];
+    lastItem.name = medicine.name;
+    lastItem.price = medicine.price;
+    setBillItems(updatedItems);
+    setSearchQuery(''); // Clear search field after selecting medicine
   };
 
   return (
@@ -136,6 +157,28 @@ function BillingDashboard() {
             </div>
           </div>
 
+          <div className="search-medicine">
+            <input
+              type="text"
+              placeholder="Search medicine"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <div className="search-results">
+              {filteredMedicines.map((medicine) => (
+                <div
+                  key={medicine.id}
+                  className="search-item"
+                  onClick={() => handleMedicineSelect(medicine)}
+                >
+                  <p>{medicine.name}</p>
+                  <p>₹{medicine.price}</p>
+                  <p>Stock: {medicine.stock}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="medicine-list">
             <h3>Medicines</h3>
             {billItems.map((item) => (
@@ -159,9 +202,7 @@ function BillingDashboard() {
                   type="number"
                   placeholder="Price"
                   value={item.price}
-                  onChange={(e) =>
-                    updateItem(item.id, 'price', parseFloat(e.target.value))
-                  }
+                  readOnly
                 />
                 <span className="item-total">
                   ₹{(item.price * item.quantity).toFixed(2)}
