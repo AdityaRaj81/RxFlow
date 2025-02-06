@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import '../../styles/StaffDashboard.css'; // Import the CSS file
 
 function StaffDashboard() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -36,33 +37,30 @@ function StaffDashboard() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        {/* Updated Header */}
-        <h1>{headerMessage}</h1>
+        <div className="header-content">
+          {/* Staff Profile Image */}
+          <img src={user.profilePicture} alt="Profile" className="profile-image" />
+          <div className="greeting">
+            <h1>{headerMessage}</h1>
+            <p className="role">Role: {user.role}</p>
+          </div>
+        </div>
       </motion.div>
 
-
-
       <div className="staff-actions-grid">
-          <motion.div
-            className="action-card"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Link to="/billing" className="action-link">
-              <h3>Billing Dashboard</h3>
-              <p>Manage customer bills and transactions</p>
-            </Link>
-          </motion.div>
-          <motion.div
-            className="action-card"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Link to="/inventory" className="action-link">
-              <h3>Inventory Management</h3>
-              <p>Manage medicine stock and inventory</p>
-            </Link>
-          </motion.div>
-        </div>
-
+        <motion.div className="action-card" whileHover={{ scale: 1.05 }}>
+          <Link to="/billing" className="action-link">
+            <h3>Billing Dashboard</h3>
+            <p>Manage customer bills and transactions</p>
+          </Link>
+        </motion.div>
+        <motion.div className="action-card" whileHover={{ scale: 1.05 }}>
+          <Link to="/inventory" className="action-link">
+            <h3>Inventory Management</h3>
+            <p>Manage medicine stock and inventory</p>
+          </Link>
+        </motion.div>
+      </div>
 
       <div className="dashboard-content">
         <div className="staff-stats-grid">
@@ -79,8 +77,6 @@ function StaffDashboard() {
             <p>{staffDetails.leavesUsed}</p>
           </motion.div>
         </div>
-
-
 
         <div className="upcoming-shifts">
           <h3>Upcoming Shifts</h3>
