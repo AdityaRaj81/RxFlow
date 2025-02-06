@@ -37,7 +37,7 @@ function Auth() {
     // Redirect based on role
     switch (user.role) {
       case 'staff':
-        navigate('/billing');
+        navigate('/staff');
         break;
       case 'auditor':
         navigate('/reports');
@@ -82,18 +82,18 @@ function Auth() {
                 />
               </div>
               <div className="form-group">
-  {/* <label>Role:</label> */}
-  <div className="role-options" style={{ display: 'flex', gap: '50px', alignItems: 'center' }}>
-    <label>
-      <input 
-        type="radio" 
-        name="role" 
-        value="staff" 
-        checked={role === 'staff'} 
-        onChange={(e) => setRole(e.target.value)} 
-      />
-      Staff
-    </label>
+                {/* <label>Role:</label> */}
+                <div className="role-options" style={{ display: 'flex', gap: '50px', alignItems: 'center' }}>
+              <label>
+                <input 
+                  type="radio" 
+                  name="role" 
+                  value="staff" 
+                  checked={role === 'staff'} 
+                  onChange={(e) => setRole(e.target.value)} 
+                />
+                Staff
+              </label>
     <label>
       <input 
         type="radio" 
