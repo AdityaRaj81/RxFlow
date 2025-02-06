@@ -47,7 +47,6 @@
   padding: 4rem 2rem;
   background: #f8f9fa;
 }
-
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -55,7 +54,6 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .pricing-card {
   background: white;
   padding: 2rem;
@@ -63,23 +61,19 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
-
 .pricing-card.featured {
   border: 2px solid #646cff;
   transform: scale(1.05);
 }
-
 .price {
   font-size: 2.5rem;
   color: #2d3748;
   margin: 1rem 0;
 }
-
 .price span {
   font-size: 1rem;
   color: #718096;
 }
-
 .pricing-button {
   background: #646cff;
   color: white;
@@ -89,7 +83,6 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .pricing-button:hover {
   background: #535bf2;
 }
@@ -100,22 +93,18 @@
   background: #ffffff;
   text-align: center;
 }
-
 .about-content {
   max-width: 800px;
   margin: 0 auto;
 }
-
 .about-text h3 {
   color: #2d3748;
   margin: 1.5rem 0 1rem;
 }
-
 .about-text p {
   color: #4a5568;
   margin-bottom: 1rem;
 }
-
 .about-text ul {
   list-style: none;
   margin-left: 1.5rem;
@@ -127,7 +116,6 @@
   padding: 4rem 2rem;
   background: #f8f9fa;
 }
-
 .contact-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -135,89 +123,28 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .contact-form {
   background: white;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 .contact-info {
   display: grid;
   gap: 1.5rem;
 }
-
 .info-item {
   background: white;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 .info-item h3 {
   color: #2d3748;
   margin-bottom: 0.5rem;
 }
 
-/* Profile Styles */
-.profile-container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
-.profile-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.profile-avatar {
-  width: 80px;
-  height: 80px;
-  background: #646cff;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-}
-
-.profile-title h2 {
-  margin: 0;
-  color: #2d3748;
-}
-
-.role-badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background: #e2e8f0;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  color: #4a5568;
-  margin-top: 0.5rem;
-}
-
-.profile-details {
-  margin-bottom: 2rem;
-}
-
-.detail-item {
-  display: flex;
-  margin-bottom: 1rem;
-}
-
-.detail-item label {
-  font-weight: 600;
-  width: 100px;
-  color: #4a5568;
-}
 
 
 
