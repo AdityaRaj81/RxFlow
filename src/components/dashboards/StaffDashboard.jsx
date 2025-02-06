@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function StaffDashboard() {
   const user = JSON.parse(localStorage.getItem('user'));
+  
   const staffDetails = {
     totalWorkingDays: 240,
     leavesAvailable: 12,
@@ -13,6 +15,20 @@ function StaffDashboard() {
     ],
   };
 
+  const [headerMessage, setHeaderMessage] = useState("");
+
+  // Function to update the header message dynamically
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour < 12) {
+      setHeaderMessage(`Good Morning, ${user.name}`);
+    } else if (hour < 18) {
+      setHeaderMessage(`Good Afternoon, ${user.name}`);
+    } else {
+      setHeaderMessage(`Good Evening, ${user.name}`);
+    }
+  }, [user.name]);
+
   return (
     <div className="dashboard-container">
       <motion.div
@@ -20,26 +36,13 @@ function StaffDashboard() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <h1>Welcome, {user.name}</h1>
+        {/* Updated Header */}
+        <h1>{headerMessage}</h1>
       </motion.div>
 
-      <div className="dashboard-content">
-        <div className="staff-stats-grid">
-          <motion.div className="stat-card" whileHover={{ scale: 1.05 }}>
-            <h3>Total Working Days</h3>
-            <p>{staffDetails.totalWorkingDays}</p>
-          </motion.div>
-          <motion.div className="stat-card" whileHover={{ scale: 1.05 }}>
-            <h3>Leaves Available</h3>
-            <p>{staffDetails.leavesAvailable}</p>
-          </motion.div>
-          <motion.div className="stat-card" whileHover={{ scale: 1.05 }}>
-            <h3>Leaves Used</h3>
-            <p>{staffDetails.leavesUsed}</p>
-          </motion.div>
-        </div>
 
-        <div className="staff-actions-grid">
+
+      <div className="staff-actions-grid">
           <motion.div
             className="action-card"
             whileHover={{ scale: 1.05 }}
@@ -59,6 +62,25 @@ function StaffDashboard() {
             </Link>
           </motion.div>
         </div>
+
+
+      <div className="dashboard-content">
+        <div className="staff-stats-grid">
+          <motion.div className="stat-card" whileHover={{ scale: 1.05 }}>
+            <h3>Total Working Days</h3>
+            <p>{staffDetails.totalWorkingDays}</p>
+          </motion.div>
+          <motion.div className="stat-card" whileHover={{ scale: 1.05 }}>
+            <h3>Leaves Available</h3>
+            <p>{staffDetails.leavesAvailable}</p>
+          </motion.div>
+          <motion.div className="stat-card" whileHover={{ scale: 1.05 }}>
+            <h3>Leaves Used</h3>
+            <p>{staffDetails.leavesUsed}</p>
+          </motion.div>
+        </div>
+
+
 
         <div className="upcoming-shifts">
           <h3>Upcoming Shifts</h3>
