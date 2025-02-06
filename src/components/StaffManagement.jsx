@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 function StaffManagement() {
   const [staffList, setStaffList] = useState([
-    { id: 1, name: 'John Doe', email: 'staff@gmail.com', role: 'staff', status: 'active' },
-    { id: 2, name: 'Jane Smith', email: 'auditor@gmail.com', role: 'auditor', status: 'active' }
+    { id: 1, name: 'Moxika Vaghela', email: 'Moxika@rxflow.com', role: 'staff', status: 'active' },
+    { id: 2, name: 'Grishma Vaghela', email: 'Grishma@rxflow.com', role: 'staff', status: 'active' }
   ]);
 
   const [showAddForm, setShowAddForm] = useState(false);
