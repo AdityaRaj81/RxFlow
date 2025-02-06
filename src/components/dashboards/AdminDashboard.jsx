@@ -1,10 +1,17 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { format } from 'date-fns';
+import DatePicker from 'react-datepicker';  // Add this import
+import { Line } from 'react-chartjs-2';    // Example chart import
+import 'react-datepicker/dist/react-datepicker.css';  // Styles for date picker
+import { Chart as ChartJS } from 'chart.js/auto';
+import '../../styles/AdminDashboard.css';  // Use relative path for the CSS file
+
 
 function AdminDashboard() {
   const [dateRange, setDateRange] = useState('today');
   const [activeSection, setActiveSection] = useState('overview');
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const salesData = {
     today: {
@@ -16,6 +23,11 @@ function AdminDashboard() {
       total: 525000,
       transactions: 850,
       averageOrder: 617.65
+    },
+    custom: {
+      total: 30000,
+      transactions: 60,
+      averageOrder: 500.00
     }
   };
 
@@ -50,6 +62,20 @@ function AdminDashboard() {
     }
   ];
 
+  // Sales Data for the Chart
+  const salesChartData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [
+      {
+        label: 'Total Sales',
+        data: [5000, 10000, 15000, 20000, 25000, 30000],
+        fill: false,
+        borderColor: 'rgba(75,192,192,1)',
+        tension: 0.1
+      }
+    ]
+  };
+
   return (
     <div className="dashboard-container">
       <motion.div 
@@ -67,7 +93,17 @@ function AdminDashboard() {
             <option value="today">Today</option>
             <option value="week">This Week</option>
             <option value="month">This Month</option>
+            <option value="custom">Custom</option>
           </select>
+
+          {dateRange === 'custom' && (
+            <DatePicker 
+              selected={selectedDate} 
+              onChange={(date) => setSelectedDate(date)} 
+              dateFormat="dd/MM/yyyy" 
+              className="date-picker"
+            />
+          )}
         </div>
       </motion.div>
 
@@ -130,6 +166,14 @@ function AdminDashboard() {
                 <span>₹{inventoryStats.totalValue.toLocaleString()}</span>
               </div>
             </div>
+          </motion.div>
+
+          <motion.div 
+            className="admin-card chart"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3>Sales Trend</h3>
+            <Line data={salesChartData} />
           </motion.div>
         </div>
 
