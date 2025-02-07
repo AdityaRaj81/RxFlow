@@ -24,10 +24,19 @@
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(90deg, #1b98f7, #8abbff, #af57e6, #65f6e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: wave 6s infinite;
   cursor: pointer;
+}
+.logo:hover {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
 }
 
 .nav-buttons {
@@ -60,11 +69,9 @@
 }
 
 .home-container {
-  padding-top: 64px;
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
-
 .hero-section {
   min-height: 90vh;
   display: flex;
