@@ -33,6 +33,7 @@
   animation: wave 6s infinite;
   cursor: pointer;
 }
+
 .logo:hover {
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transform: scale(1.05);
@@ -72,6 +73,7 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
+
 .hero-section {
   min-height: 90vh;
   display: flex;

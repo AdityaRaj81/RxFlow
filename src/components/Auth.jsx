@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import '../styles/Auth.css';
 
 const USERS = {
   staff: { email: 'staff@rxflow.com', password: '123', role: 'staff' },
